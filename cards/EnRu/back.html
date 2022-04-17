@@ -1,0 +1,31 @@
+{{FrontSide}}
+
+<table id="translate" class="Content ">
+   <td>
+      <div class="CentradoBack" style='color:#FFAE00;'>{{Back}}</div>
+   </td>  
+</table>
+
+<table id="example" class="ExamplesBack">
+   <td>      
+      <div class="ExamplesBack">{{Examples}}</div>
+   </td>  
+</table>
+
+<div id="err"/>
+
+<script>
+    var output = '';
+	try {
+		if(!"{{Examples}}"){
+			var elTanslate = document.getElementById('translate');
+			elTanslate.style.opacity = 1;
+			elTanslate.style.borderRadius = "0px 0px 15px 15px";
+	
+			document.getElementById('example').remove();
+		}
+	} catch {
+		 output = `${error.name}: ${error.message}`;
+	}
+    document.getElementById('err').textContent = `${output}`;
+</script>

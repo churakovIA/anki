@@ -1,0 +1,14 @@
+<table class="Question">
+   <td class= "Centrado">      
+      <div>{{Front}}<div id="transcription"/></div>
+   </td>
+</table>
+
+<script>
+   	var el = document.getElementById('transcription');
+	if("{{Transcription}}"){
+		el.innerHTML = '<span class="Transcription">[{{Transcription}}]</span>';
+	} else {	
+		el.remove();
+	}	
+</script>
