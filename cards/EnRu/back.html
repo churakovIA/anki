@@ -12,9 +12,20 @@
   </td>
 </table>
 
+<div class="button-panel">
+  <a id="wooordhunt" class="button">Wooordhunt</a>
+  <a id="yandex" class="button">Yandex</a>
+  <a id="reverso" class="button">Reverso</a>
+  <a id="oxford" class="button">Oxford</a>
+</div>
+
 <div id="err"/>
 
 <script>
+  document.getElementById('wooordhunt').setAttribute("href", "https://wooordhunt.ru/word/{{Front}}");
+  document.getElementById('yandex').setAttribute("href", "https://translate.yandex.ru/?lang=en-ru&text={{Front}}");
+  document.getElementById('reverso').setAttribute("href", "https://context.reverso.net/translation/english-russian/{{Front}}");
+  document.getElementById('oxford').setAttribute("href", "https://www.oxfordlearnersdictionaries.com/definition/english/{{Front}}");
   var output = '';
   try {
     if ("{{Transcription}}") {
