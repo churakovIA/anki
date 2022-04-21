@@ -41,9 +41,7 @@ table {
 }
 .Content {
 	background-color: #343a40;			
-	color: #bfcacf; 
 	opacity:  0.95;
-	color: #FFF;
 	height: 100%;
 	box-shadow: 0px 0px 10px #16191a;
 }
@@ -69,6 +67,7 @@ td {
 	padding-bottom: 5px;
 	text-align: center;
 	opacity: 1;
+	color: #FFAE00;
 }
 .cloze {
 	color: #f0ad4e;
