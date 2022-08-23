@@ -97,3 +97,10 @@ td {
 	text-align: center;
 	white-space: nowrap;
 }
+.Related-words {
+	font-size: 11px;
+	vertical-align: middle;
+	text-align: center;
+	padding: 2%;
+	color: #8D8D8D;
+}

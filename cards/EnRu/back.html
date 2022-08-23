@@ -32,19 +32,17 @@
       document.getElementById(
           'request').innerHTML = '{{Front}}<div><span class="Transcription">[{{Transcription}}]</span></div>';
     }
-    if (!"{{Examples}}" && !"{{Related}}") {
+    if ("{{Related}}") {
+      var elTableExample = document.getElementById('table-question');
+      var elRow = elTableExample.insertRow();
+      elRow.innerHTML = '<td class="Related-words">{{Related}}</td>';
+    }
+    if (!"{{Examples}}") {
       var elTranslate = document.getElementById('translate');
       elTranslate.style.opacity = '1';
       elTranslate.style.borderRadius = '0px 0px 15px 15px';
 
       document.getElementById('example').remove();
-    }
-    if ("{{Related}}") {
-      var elTableExample = document.getElementById('example');
-      var elRow = elTableExample.insertRow();
-      var elCell = elRow.insertCell(0);
-      var newText = document.createTextNode('{{Related}}');
-      elCell.appendChild(newText);
     }
   } catch {
     output = `${error.name}: ${error.message}`;
