@@ -3,3 +3,10 @@
     <div id="request">{{Front}}</div>
   </td>
 </table>
+
+<script>
+  if ("{{Word}}") {
+    document.getElementById("request")
+        .innerHTML = '{{Word}}<span class = "word-explanation">{{Explanation}}</span>';
+  }
+</script>

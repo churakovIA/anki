@@ -1,3 +1,8 @@
+.word-explanation{
+	padding-left: 10px;
+	font: italic 15px serif;
+	color: #8D8D8D;
+}
 .card {
 	font-family: 'Nunito Sans', sans-serif;
 	font-size: 15px;
@@ -76,7 +81,6 @@ td {
 .Transcription {
 	font-size: 16px;
 	vertical-align: middle;
-	padding: 3%;
 	color: #8D8D8D;
 }
 .button {
@@ -101,6 +105,6 @@ td {
 	font-size: 11px;
 	vertical-align: middle;
 	text-align: center;
-	padding: 2%;
+	padding-bottom: 1%;
 	color: #8D8D8D;
 }

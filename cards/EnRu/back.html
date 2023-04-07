@@ -22,15 +22,21 @@
 <div id="err"/>
 
 <script>
-  document.getElementById('wooordhunt').setAttribute("href", "https://wooordhunt.ru/word/{{Front}}");
-  document.getElementById('yandex').setAttribute("href", "https://translate.yandex.ru/?lang=en-ru&text={{Front}}");
-  document.getElementById('reverso').setAttribute("href", "https://context.reverso.net/translation/english-russian/{{Front}}");
-  document.getElementById('oxford').setAttribute("href", "https://www.oxfordlearnersdictionaries.com/definition/english/{{Front}}");
+  var word = "{{Word}}" ? "{{Word}}" : "{{Front}}";
+  document.getElementById('wooordhunt').setAttribute("href", "https://wooordhunt.ru/word/" + word);
+  document.getElementById('yandex').setAttribute("href", "https://translate.yandex.ru/?lang=en-ru&text=" + word);
+  document.getElementById('reverso').setAttribute("href", "https://context.reverso.net/translation/english-russian/" + word);
+  document.getElementById('oxford').setAttribute("href", "https://www.oxfordlearnersdictionaries.com/definition/english/" + word);
   var output = '';
   try {
-    if ("{{Transcription}}") {
-      document.getElementById(
-          'request').innerHTML = '{{Front}}<div><span class="Transcription">[{{Transcription}}]</span></div>';
+    if ("{{Word}}" || "{{Transcription}}") {
+      var frontInnerHTML = "{{Word}}"
+          ? '{{Word}}<span class = "word-explanation">{{Explanation}}</span>'
+          : '{{Front}}';
+      if ("{{Transcription}}") {
+        frontInnerHTML += '<p class="Transcription">[{{Transcription}}]</p>'
+      }
+      document.getElementById("request").innerHTML = frontInnerHTML;
     }
     if ("{{Related}}") {
       var elTableExample = document.getElementById('table-question');
