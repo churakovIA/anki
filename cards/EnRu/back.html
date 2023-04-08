@@ -1,14 +1,15 @@
 {{FrontSide}}
 
-<table id="translate" class="Content">
-  <td>
-    <div class="CentradoBack">{{Back}}</div>
-  </td>
-</table>
-
 <table id="example" class="ExamplesBack">
   <td>
-    <div class="ExamplesBack">{{Examples}}</div>
+    <div class="ExamplesBack">
+      <label class="switch btn-color-mode-switch">
+        <input type="checkbox" name="color_mode" id="color_mode" value="1" onclick="switchChangeHandler()">
+        <label for="color_mode" data-on="RU" data-off="EN" class="btn-color-mode-switch-inner"></label>
+      </label>
+      <p id="examples_en">{{Examples}}</p>
+      <p id="examples_ru" style="display: none">{{Back}}</p>
+    </div>
   </td>
 </table>
 
@@ -22,6 +23,19 @@
 <div id="err"/>
 
 <script>
+  function switchChangeHandler() {
+    var checkBox = document.getElementById("color_mode");
+    var examplesEn = document.getElementById("examples_en");
+    var examplesRu = document.getElementById("examples_ru");
+    if (checkBox.checked === true){
+      examplesEn.style.display = "none";
+      examplesRu.style.display = "block";
+    } else {
+      examplesEn.style.display = "block";
+      examplesRu.style.display = "none";
+    }
+  }
+
   var word = "{{Word}}" ? "{{Word}}" : "{{Front}}";
   document.getElementById('wooordhunt').setAttribute("href", "https://wooordhunt.ru/word/" + word);
   document.getElementById('yandex').setAttribute("href", "https://translate.yandex.ru/?lang=en-ru&text=" + word);
@@ -42,13 +56,6 @@
       var elTableExample = document.getElementById('table-question');
       var elRow = elTableExample.insertRow();
       elRow.innerHTML = '<td class="Related-words">{{Related}}</td>';
-    }
-    if (!"{{Examples}}") {
-      var elTranslate = document.getElementById('translate');
-      elTranslate.style.opacity = '1';
-      elTranslate.style.borderRadius = '0px 0px 15px 15px';
-
-      document.getElementById('example').remove();
     }
   } catch {
     output = `${error.name}: ${error.message}`;
